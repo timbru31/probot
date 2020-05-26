@@ -1,8 +1,5 @@
 name: Docs
-on:
-  push:
-    branches:
-      - master
+on: [push]
 
 jobs:
   docs:
@@ -15,6 +12,6 @@ jobs:
           node-version: "12.x"
       - run: npm ci
       - run: npm run build
-      - run: ./script/publish-docs
+      - run: npm run doc
         env:
           OCTOKITBOT_PAT: ${{ secrets.OCTOKITBOT_PAT }}
